@@ -3,37 +3,57 @@ import { Component }	from '@angular/core';
 @Component({
 	selector: 'navigation',
 	template: `
-		<ul>
-			<li>home</li>
-			<li>about</li>
-			<li>contact</li>
-			<li>sign in</li>
-			<li><input type="textarea" name="search"></li>
-		</ul>
-	`
+		<div class="row">
+			<div class="col-lg-1 col-xs-12 link"><a routerLink="/gallery">home</a></div>
+			<div class="col-lg-1 col-xs-12 link"><a routerLink="/about">about</a></div>
+			<div class="col-lg-1 col-xs-12 link"><a routerLink="/contact">contact</a></div>
+			<div class="col-lg-1 col-xs-12 link"><a routerLink="/signin">sign in</a></div>
+			<div class="col-lg-2 col-xs-12"><input type="text" name="search" value="search"></div>
+			<div class="col-lg-1 col-xs-12 button">search</div>
+		</div>
+	`,
 	styles: [`
-		li {
-			display: inline-block;
+		.link:hover {
+			cursor: pointer;
+			color: red;
+			background-color: black;
+		}
+
+		a {
 			color: #fff;
-			font-size: 20px;
-			padding-left: 20px;
-			font-family: Helvetica;
+			text-decoration: none;
 		}
 
-		li:hover {
-			color: #ccc;
-		}
-
-		ul {
-			background-color: #333;
-			width: 100%;
-			height: 50px;
-			padding: 30px 50px 0 0;
-			margin-bottom: 1px;
-		}
 
 		input {
 			height: 20px;
+		}
+
+		.row {
+			background-color: #333;
+			height: 50px;
+			color: #fff;
+			padding-top: 10px;
+			padding-left: 10px;
+			font-size: 20px;
+		}
+
+		.link {
+			text-align: center;
+			padding-top: 2px;
+			height: 100%;
+		}
+
+		.button {
+			margin-left: 30px;
+			background-color: #ccc;
+			width: 90px;
+			color: #444;
+		}
+
+		.button:hover {
+			color: #222;
+			cursor: pointer;
 		}
 	`]
 })

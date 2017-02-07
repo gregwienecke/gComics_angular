@@ -7,13 +7,13 @@ import { Component } 	from '@angular/core';
 			<h1>gCOMICS</h1>
 			<p>creator owned comics</p>
 		</div>
-	`
+	`,
 	styles: [`
 		div {
 			background-color: black;
 			width: 100%;
 			padding: 60px 0 10px 20px;
-			height: 140px;
+			height: 210px;
 		}
 		h1 {
 			color: salmon;

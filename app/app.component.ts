@@ -6,12 +6,8 @@ import { Component } from '@angular/core';
   	<navigation></navigation>
 	
 	<header></header>
-
-	<!--
-	<comicsList></comicsList>
-	<gallery></gallery>
-	<footer></footer>
-	-->
+	
+	<router-outlet></router-outlet>
   `,
 })
 export class AppComponent  { 
