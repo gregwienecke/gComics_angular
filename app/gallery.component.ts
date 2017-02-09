@@ -3,17 +3,20 @@ import { Component } 	from '@angular/core';
 @Component({
 	selector: 'gallery',
 	template: `
-		<div>
+		<div class="header">
 			<h1>Gallery</h1>
+		</div>
+		<div class="gallery">
+
 		</div>
 	`,
 	styles: [`
-		div {
-			height: 300px;
+		.header {
+			height: 285px;
 			width: 90%;
 			//background-color: #ccc;
-			background-image: url("app/images/smithsonite.jpg");
-			background-position: 30%;
+			background-image: url("app/images/sevenposter.jpg");
+			background-position: -450px -60px;
 			margin: auto;
 			text-align: center;
 		}

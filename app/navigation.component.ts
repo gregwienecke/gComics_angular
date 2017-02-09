@@ -5,10 +5,10 @@ import { Component }	from '@angular/core';
 	template: `
 		<div class="row">
 			<div class="col-lg-1 col-xs-12 link"><a routerLink="/gallery">home</a></div>
-			<div class="col-lg-1 col-xs-12 link"><a routerLink="/about">about</a></div>
 			<div class="col-lg-1 col-xs-12 link"><a routerLink="/contact">contact</a></div>
-			<div class="col-lg-1 col-xs-12 link"><a routerLink="/signin">sign in</a></div>
-			<div class="col-lg-2 col-xs-12"><input type="text" name="search" value="search"></div>
+			<div class="col-lg-1 col-xs-12 link"><a routerLink="/signIn">sign in</a></div>
+			<div class="col-lg-1 col-xs-12 link"><a routerLink="/cart">cart</a></div>
+			<div class="col-lg-2 col-xs-12"><input type="text" name="search"></div>
 			<div class="col-lg-1 col-xs-12 button">search</div>
 		</div>
 	`,
@@ -24,9 +24,9 @@ import { Component }	from '@angular/core';
 			text-decoration: none;
 		}
 
-
 		input {
-			height: 20px;
+			color: #333;
+			height: 30px;
 		}
 
 		.row {
@@ -57,4 +57,6 @@ import { Component }	from '@angular/core';
 		}
 	`]
 })
-export class NavigationComponent {}
+export class NavigationComponent {
+
+}
