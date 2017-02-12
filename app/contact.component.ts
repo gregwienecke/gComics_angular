@@ -8,23 +8,14 @@ import { Component } from '@angular/core';
 		</div>
 		<div class="contactDiv">
 			<form action="" method="post" name="form">
-				<table>
-					<tr>
-						<td><label>Name</label></td>
-						<td><input type="text" id="name" name="name"></td>
-					</tr>
-					<tr>
-						<td><label>Email</label></td>	
-						<td><input type="text" id="email" name="email"></td>
-					</tr>
-					<tr>
-						<td><label>Message</label></td>	
-						<td><textarea id="message" name="message"></textarea></td>
-					</tr>
-					<tr>
-						<td><input type="submit" id="submit" value="Send Message"></td>
-					</tr>	
-				</table>
+				<h2>Send Us A Message</h2>
+				<label>Name</label><br>
+				<input type="text" id="name" name="name"><br>
+				<label>Email</label><br>
+				<input type="text" id="email" name="email"><br>
+				<label>Message</label><br>
+				<textarea id="message" name="message"></textarea><br>
+				<input type="submit" id="submit" value="Send Message">
 			</form>
 		</div>
 		<footer></footer>
@@ -34,7 +25,7 @@ import { Component } from '@angular/core';
 			height: 285px;
 			width: 90%;
 			//background-color: #ccc;
-			background-image: url("app/images/sevenposter.jpg");
+			background-image: url("/images/sevenposter.jpg");
 			background-position: -450px -60px;
 			margin: auto;
 			text-align: center;
@@ -64,6 +55,17 @@ import { Component } from '@angular/core';
 
 		tr {
 			margin-top: 10px;
+		}
+
+		input[type=submit]{
+			background-color: black;
+			border: none;
+			color: salmon;
+			padding: 5px 10px 5px 10px;
+		}
+
+		input[type=submit]:hover {
+			background-color: #222;
 		}
 	`]
 })

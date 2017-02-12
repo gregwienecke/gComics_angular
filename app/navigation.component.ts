@@ -14,7 +14,6 @@ import { Component }	from '@angular/core';
 	`,
 	styles: [`
 		.link:hover {
-			cursor: pointer;
 			color: red;
 			background-color: black;
 		}
@@ -46,13 +45,14 @@ import { Component }	from '@angular/core';
 
 		.button {
 			margin-left: 30px;
-			background-color: #ccc;
+			background-color: black;
 			width: 90px;
-			color: #444;
+			color: salmon;
 		}
 
 		.button:hover {
-			color: #222;
+			color: salmon;
+			background-color: #222;
 			cursor: pointer;
 		}
 	`]

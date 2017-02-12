@@ -4,7 +4,7 @@ import { Component } 	from '@angular/core';
 	selector: 'header',
 	template: `
 		<div>
-			<h1>gCOMICS</h1>
+			<h1>{{title}}</h1>
 			<p>creator owned comics</p>
 		</div>
 	`,
@@ -30,5 +30,5 @@ import { Component } 	from '@angular/core';
 	`]
 })
 export class HeaderComponent {
-	
+	title = "gCOMICS"	
 }

@@ -10,18 +10,18 @@ import { Component } from '@angular/core';
 			
 			<form action="" method="post" name="signInForm">
 				<h2>Sign In</h2>
-				<label>Username</label>
+				<label>Username</label><br>
 				<input type="text" id="name" name="name"><br>
-				<label>Password</label>
+				<label>Password</label><br>
 				<input type="password" id="pw" name="pw"><br><br>
 				<input type="submit" value="sign in">
 			</form>
 				
 			<form action="" method="post" name="registerForm">
 				<h2>Register</h2>
-				<label>Username</label>
+				<label>Username</label><br>
 				<input type="text"><br>
-				<label>Password</label>
+				<label>Password</label><br>
 				<input type="password"><br><br>
 				<input type="submit" id="submit" value="register">
 			</form>
@@ -33,7 +33,7 @@ import { Component } from '@angular/core';
 			height: 285px;
 			width: 90%;
 			//background-color: #ccc;
-			background-image: url("app/images/sevenposter.jpg");
+			background-image: url("/images/sevenposter.jpg");
 			background-position: -450px -60px;
 			margin: auto;
 			text-align: center;
@@ -53,6 +53,17 @@ import { Component } from '@angular/core';
 
 		footer {
 			height: 100px;
+		}
+
+		input[type=submit]{
+			background-color: black;
+			border: none;
+			color: salmon;
+			padding: 5px 10px 5px 10px;
+		}
+
+		input[type=submit]:hover{
+			background-color: #222;
 		}
 
 	`]

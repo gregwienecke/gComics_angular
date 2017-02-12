@@ -1,21 +1,27 @@
 import { Component } 	from '@angular/core';
 
+import { inventory }	from './mocks/inventory-mocks';
+
 @Component({
 	selector: 'gallery',
 	template: `
 		<div class="header">
-			<h1>Gallery</h1>
+			<h1>Home</h1>
 		</div>
+		
 		<div class="gallery">
-
+			<div class="col-lg-2 col-xs-6" *ngFor="let inv of inventory">
+				<img src={{inv.image}}>
+			</div>
 		</div>
+
 	`,
 	styles: [`
 		.header {
 			height: 285px;
 			width: 90%;
 			//background-color: #ccc;
-			background-image: url("app/images/sevenposter.jpg");
+			background-image: url("/images/sevenposter.jpg");
 			background-position: -450px -60px;
 			margin: auto;
 			text-align: center;
@@ -29,8 +35,20 @@ import { Component } 	from '@angular/core';
 			margin: auto;
 		}
 
+		.gallery {
+			width: 90%;
+			margin: auto;
+		}
+
+		img {
+			height: 280px;
+		}
+
 	`]
 })
 export class GalleryComponent {
+	ngOnInit(){
+		this.inventory = inventory;
+	}
 	
 }
