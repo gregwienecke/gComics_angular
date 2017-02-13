@@ -1,4 +1,6 @@
-export let inventory = [
+import { Inventory }	from './inventory';
+
+export let ALL_INVENTORY: Inventory[] = [
 	{
 		"id": 1,
 		"name": "Black Science",
@@ -83,4 +85,4 @@ export let inventory = [
 		"quantity": 0,
 		"image": "/images/covers/tokyoghost.png"
 	}
-]
+];

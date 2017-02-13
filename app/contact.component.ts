@@ -7,7 +7,7 @@ import { Component } from '@angular/core';
 			<h1>Contact</h1>
 		</div>
 		<div class="contactDiv">
-			<form action="" method="post" name="form">
+			<form name="form">
 				<h2>Send Us A Message</h2>
 				<label>Name</label><br>
 				<input type="text" id="name" name="name"><br>
@@ -15,9 +15,10 @@ import { Component } from '@angular/core';
 				<input type="text" id="email" name="email"><br>
 				<label>Message</label><br>
 				<textarea id="message" name="message"></textarea><br>
-				<input type="submit" id="submit" value="Send Message">
+				<input type="submit" id="submit" value="Send Message" (click)="clicked()">
 			</form>
 		</div>
+
 		<footer></footer>
 	`,
 	styles: [`

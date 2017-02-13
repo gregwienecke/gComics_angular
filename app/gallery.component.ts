@@ -1,6 +1,7 @@
-import { Component } 	from '@angular/core';
+import { Component } 		from '@angular/core';
 
-import { inventory }	from './mocks/inventory-mocks';
+import { Inventory }		from './mocks/inventory';
+import { ALL_INVENTORY }	from './mocks/inventory-mocks';
 
 @Component({
 	selector: 'gallery',
@@ -8,13 +9,14 @@ import { inventory }	from './mocks/inventory-mocks';
 		<div class="header">
 			<h1>Home</h1>
 		</div>
-		
+
 		<div class="gallery">
 			<div class="col-lg-2 col-xs-6" *ngFor="let inv of inventory">
-				<img src={{inv.image}}>
+				<a routerLink="/shop">
+					<img [src]="inv.image" [id]="inv.id">
+				</a>
 			</div>
-		</div>
-
+		</div>		
 	`,
 	styles: [`
 		.header {
@@ -44,11 +46,18 @@ import { inventory }	from './mocks/inventory-mocks';
 			height: 280px;
 		}
 
+		img:hover {
+			opacity: 80%;
+			cursor: pointer;
+		}
+
 	`]
 })
 export class GalleryComponent {
+	inventory: Inventory[];
+
 	ngOnInit(){
-		this.inventory = inventory;
+		this.inventory = ALL_INVENTORY;
 	}
 	
 }

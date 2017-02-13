@@ -8,7 +8,7 @@ import { Component } from '@angular/core';
 		</div>
 		<div class="signInDiv">
 			
-			<form action="" method="post" name="signInForm">
+			<form method="post" name="signInForm">
 				<h2>Sign In</h2>
 				<label>Username</label><br>
 				<input type="text" id="name" name="name"><br>

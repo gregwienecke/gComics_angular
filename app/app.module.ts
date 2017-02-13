@@ -9,6 +9,7 @@ import { GalleryComponent }		  from './gallery.component';
 import { ContactComponent }     from './contact.component';
 import { SignInComponent }      from './signin.component';
 import { CartComponent }        from './cart.component';
+import { ShopComponent }        from './shop.component';
 
 @NgModule({
   imports: [ 
@@ -34,6 +35,10 @@ import { CartComponent }        from './cart.component';
       {
         path: 'cart',
         component: CartComponent
+      },
+      {
+      path: 'shop',
+      component: ShopComponent
       }
   	])
   ],
@@ -44,7 +49,8 @@ import { CartComponent }        from './cart.component';
   	GalleryComponent,
     ContactComponent,
     SignInComponent,
-    CartComponent
+    CartComponent,
+    ShopComponent
   ],
   bootstrap:    [ AppComponent ]
 })
