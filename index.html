@@ -38,6 +38,17 @@
     <my-app>Loading AppComponent content here ...</my-app>
 
 
-
+    <script src="https://www.gstatic.com/firebasejs/3.6.9/firebase.js"></script>
+    <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyDizjXpA178mmz15X-LDgtJRQaXSTkOUaU",
+        authDomain: "gcomics-angular.firebaseapp.com",
+        databaseURL: "https://gcomics-angular.firebaseio.com",
+        storageBucket: "gcomics-angular.appspot.com",
+        messagingSenderId: "465616423065"
+      };
+      firebase.initializeApp(config);
+    </script>
   </body>
 </html>
