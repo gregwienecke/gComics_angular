@@ -6,9 +6,9 @@ import { Component } from '@angular/core';
 		<div class="header">
 			<h1>Sign In</h1>
 		</div>
-		<div class="signInDiv">
+		<div class="signInDiv" [hidden]="submitted">
 			
-			<form method="post" name="signInForm">
+			<form name="signInForm" (ngSubmit)="onSubmit()">
 				<h2>Sign In</h2>
 				<label>Username</label><br>
 				<input type="text" id="name" name="name"><br>
@@ -16,8 +16,8 @@ import { Component } from '@angular/core';
 				<input type="password" id="pw" name="pw"><br><br>
 				<input type="submit" value="sign in">
 			</form>
-				
-			<form action="" method="post" name="registerForm">
+
+			<form name="registerForm" (ngSubmit)="onSubmit()">
 				<h2>Register</h2>
 				<label>Username</label><br>
 				<input type="text"><br>
@@ -25,7 +25,12 @@ import { Component } from '@angular/core';
 				<input type="password"><br><br>
 				<input type="submit" id="submit" value="register">
 			</form>
+
 		</div>
+		<div [hidden]="!submitted" class="signInDiv">
+			<h2>Signed In</h2>
+		</div>
+
 		<footer></footer>
 	`,
 	styles: [`
@@ -70,5 +75,10 @@ import { Component } from '@angular/core';
 })
 export class SignInComponent {
 
+	submitted = false;
+
+	onSubmit(){
+		this.submitted = true;
+	}
 }
 

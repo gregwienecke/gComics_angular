@@ -6,17 +6,25 @@ import { Component } from '@angular/core';
 		<div class="header">
 			<h1>Contact</h1>
 		</div>
-		<div class="contactDiv">
-			<form name="form">
+		<div class="contactDiv" [hidden]="submitted">
+			<form name="form" (ngSubmit)="onSubmit()">
 				<h2>Send Us A Message</h2>
+
 				<label>Name</label><br>
 				<input type="text" id="name" name="name"><br>
+
 				<label>Email</label><br>
 				<input type="text" id="email" name="email"><br>
+
 				<label>Message</label><br>
 				<textarea id="message" name="message"></textarea><br>
-				<input type="submit" id="submit" value="Send Message" (click)="clicked()">
+
+				<input type="submit" id="submit" value="Send Message">
 			</form>
+		</div>
+
+		<div [hidden]="!submitted" class="contactDiv"> 
+			<h2>Thank You!</h2>
 		</div>
 
 		<footer></footer>
@@ -71,5 +79,10 @@ import { Component } from '@angular/core';
 	`]
 })
 export class ContactComponent {
+	
+	submitted = false;
 
+	onSubmit(){
+		this.submitted = true;
+	}
 }
