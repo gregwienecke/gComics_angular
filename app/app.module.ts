@@ -10,6 +10,7 @@ import { ContactComponent }     from './contact.component';
 import { SignInComponent }      from './signin.component';
 import { CartComponent }        from './cart.component';
 import { ShopComponent }        from './shop.component';
+import { InventoryService }     from './inventory.service';
 
 @NgModule({
   imports: [ 
@@ -52,6 +53,7 @@ import { ShopComponent }        from './shop.component';
     CartComponent,
     ShopComponent
   ],
-  bootstrap:    [ AppComponent ]
+  providers: [ InventoryService ],   
+  bootstrap: [ AppComponent ]
 })
 export class AppModule { }

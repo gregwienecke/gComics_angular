@@ -1,6 +1,6 @@
 import { Inventory }	from './inventory';
 
-export let ALL_INVENTORY: Inventory[] = [
+export let INVENTORY: Inventory[] = [
 	{
 		"id": 1,
 		"name": "Black Science",

@@ -1,7 +1,8 @@
 import { Component } 		from '@angular/core';
 
 import { Inventory }		from './mocks/inventory';
-import { ALL_INVENTORY }	from './mocks/inventory-mocks';
+//import { INVENTORY }		from './mocks/inventory-mocks';
+import { InventoryService } from './inventory.service';
 
 @Component({
 	selector: 'gallery',
@@ -56,8 +57,12 @@ import { ALL_INVENTORY }	from './mocks/inventory-mocks';
 export class GalleryComponent {
 	inventory: Inventory[];
 
+	constructor(private inventoryService: InventoryService){}
+
 	ngOnInit(){
-		this.inventory = ALL_INVENTORY;
+		//this.inventory = INVENTORY;
+		//let inventoryService = new InventoryService();
+		this.inventory = this.inventoryService.getInventory();
 	}
 	
 }
