@@ -7,12 +7,12 @@ import { InventoryService } from './inventory.service';
 @Component({
 	selector: 'gallery',
 	template: `
-		<div class="header">
+		<div class="header hidden-xs">
 			<h1>Home</h1>
 		</div>
 
 		<div class="gallery">
-			<div class="col-lg-2 col-xs-6" *ngFor="let inv of inventory">
+			<div class="col-lg-2 col-md-3 col-sm-4 col-xs-6" *ngFor="let inv of inventory">
 				<a routerLink="/shop">
 					<img [src]="inv.image" [id]="inv.id">
 				</a>

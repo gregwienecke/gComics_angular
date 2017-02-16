@@ -4,12 +4,12 @@ import { Component }	from '@angular/core';
 	selector: 'navigation',
 	template: `
 		<div class="row">
-			<div class="col-lg-1 col-xs-12 link"><a routerLink="/gallery">home</a></div>
-			<div class="col-lg-1 col-xs-12 link"><a routerLink="/contact">contact</a></div>
-			<div class="col-lg-1 col-xs-12 link"><a routerLink="/signIn">sign in</a></div>
-			<div class="col-lg-1 col-xs-12 link"><a routerLink="/cart">cart</a></div>
-			<div class="col-lg-2 col-xs-12"><input type="text" name="search"></div>
-			<div class="col-lg-1 col-xs-12 button">search</div>
+			<div class="col-lg-1 col-md-2 col-xs-12 link nav"><a routerLink="/gallery">home</a></div>
+			<div class="col-lg-1 col-md-2 col-xs-12 link nav"><a routerLink="/contact">contact</a></div>
+			<div class="col-lg-1 col-md-2 col-xs-12 link nav"><a routerLink="/signIn">sign in</a></div>
+			<div class="col-lg-1 col-md-2 col-xs-12 link nav"><a routerLink="/cart">cart</a></div>
+			<div class="col-lg-2 hidden-md hidden-sm hidden-xs"><input type="text" name="search"></div>
+			<div class="col-lg-1 hidden-md hidden-sm hidden-xs button">search</div>
 		</div>
 	`,
 	styles: [`
@@ -18,29 +18,39 @@ import { Component }	from '@angular/core';
 			background-color: black;
 		}
 
+		.row a {
+			height: 100%;
+		}
+
 		a {
 			color: #fff;
 			text-decoration: none;
 		}
 
+		a:hover {
+			color: #ddd;
+		}
+
 		input {
 			color: #333;
 			height: 30px;
+			margin-top: 9px;
 		}
 
 		.row {
 			background-color: #333;
-			height: 50px;
 			color: #fff;
-			padding-top: 10px;
 			padding-left: 10px;
 			font-size: 20px;
 		}
 
 		.link {
 			text-align: center;
-			padding-top: 2px;
 			height: 100%;
+		}
+
+		.nav {
+			padding: 10px 0 10px 0;
 		}
 
 		.button {
@@ -48,6 +58,7 @@ import { Component }	from '@angular/core';
 			background-color: black;
 			width: 90px;
 			color: salmon;
+			margin-top: 10px;
 		}
 
 		.button:hover {

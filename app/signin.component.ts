@@ -3,7 +3,7 @@ import { Component } from '@angular/core';
 @Component({
 	selector: 'signIn',
 	template: `
-		<div class="header">
+		<div class="header hidden-xs">
 			<h1>Sign In</h1>
 		</div>
 		<div class="signInDiv" [hidden]="submitted">

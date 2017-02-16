@@ -3,7 +3,7 @@ import { Component } from '@angular/core';
 @Component({
 	selector: 'cart',
 	template: `
-		<div class="header">
+		<div class="header hidden-xs">
 			<h1>Cart</h1>
 		</div>
 	`,

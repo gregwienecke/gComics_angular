@@ -3,7 +3,7 @@ import { Component } from '@angular/core';
 @Component({
 	selector: 'contact',
 	template: `
-		<div class="header">
+		<div class="header hidden-xs">
 			<h1>Contact</h1>
 		</div>
 		<div class="contactDiv" [hidden]="submitted">
@@ -11,7 +11,7 @@ import { Component } from '@angular/core';
 				<h2>Send Us A Message</h2>
 
 				<label>Name</label><br>
-				<input type="text" id="name" name="name"><br>
+				<input type="text" id="name" name="name" required><br>
 
 				<label>Email</label><br>
 				<input type="text" id="email" name="email"><br>
@@ -62,6 +62,12 @@ import { Component } from '@angular/core';
 			padding-top: 30px;
 		}
 
+		@media(max-width: 400px){
+			.contactDiv {
+				padding-left: 30px;
+			}
+		}
+
 		tr {
 			margin-top: 10px;
 		}
@@ -75,6 +81,10 @@ import { Component } from '@angular/core';
 
 		input[type=submit]:hover {
 			background-color: #222;
+		}
+
+		.ng-invalid {
+			color: red;
 		}
 	`]
 })
