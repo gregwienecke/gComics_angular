@@ -11,13 +11,13 @@ import { Component } from '@angular/core';
 				<h2>Send Us A Message</h2>
 
 				<label>Name</label><br>
-				<input type="text" id="name" name="name" required><br>
+				<input [(ngModel)]="message.name" type="text" id="name" name="name" required><br>
 
 				<label>Email</label><br>
-				<input type="text" id="email" name="email"><br>
+				<input [(ngModel)]="message.email" type="text" id="email" name="email"><br>
 
 				<label>Message</label><br>
-				<textarea id="message" name="message"></textarea><br>
+				<textarea [(ngModel)]="message.body"id="message" name="message" required></textarea><br>
 
 				<input type="submit" id="submit" value="Send Message">
 			</form>
@@ -83,16 +83,39 @@ import { Component } from '@angular/core';
 			background-color: #222;
 		}
 
-		.ng-invalid {
-			color: red;
-		}
+//		.ng-invalid {
+//			color: red;
+//		}
 	`]
 })
 export class ContactComponent {
 	
 	submitted = false;
 
+	message = {
+		name: "",
+		email: "",
+		body: ""
+	}
+
+	messages = [
+		{
+			name: "Greg",
+			email: "g@example.com",
+			body: "Hello"
+		}
+	]
+
 	onSubmit(){
 		this.submitted = true;
+
+		var newMessage = {
+			name: this.message.name,
+			email: this.message.email,
+			body: this.message.body
+		}
+
+		this.messages.push(newMessage)
+		console.log(this.messages)
 	}
 }

@@ -13,10 +13,16 @@ import { InventoryService } from './inventory.service';
 
 		<div class="gallery">
 			<div class="col-lg-2 col-md-3 col-sm-4 col-xs-6" *ngFor="let inv of inventory">
-				<a routerLink="/shop">
-					<img [src]="inv.image" [id]="inv.id">
-				</a>
+				<img [src]="inv.image" [id]="inv.id" [name]="inv.name" (click)="shop(inv.name, inv.image)">
 			</div>
+		</div>
+
+		<div class="shop hidden">
+			<div id="comicImg"></div>
+			<div id="comicName"></div>
+			<p>Price: $4</p>
+			<button (click)="addToCart()">Add To Cart</button><br><br>
+			<button (click)="back()">Back</button>
 		</div>		
 	`,
 	styles: [`
@@ -52,6 +58,24 @@ import { InventoryService } from './inventory.service';
 			cursor: pointer;
 		}
 
+		.shop {
+			width: 90%;
+			margin: auto;
+			padding-top: 40px;
+			margin-bottom: 100px;
+		}
+
+		button {
+			background-color: black;
+			color: salmon;
+			border: none;
+			padding: 5px 10px 5px 10px;
+		}
+
+		button:hover {
+			background-color: #222;
+		}		
+
 	`]
 })
 export class GalleryComponent {
@@ -63,6 +87,26 @@ export class GalleryComponent {
 		//this.inventory = INVENTORY;
 		//let inventoryService = new InventoryService();
 		this.inventory = this.inventoryService.getInventory();
+		this.cart = [];
+	}
+
+	shop(name, image){
+		document.getElementById('comicImg').innerHTML = "<img style='height: 180px' src="+ image + ">"
+		document.getElementById('comicName').innerHTML = "<h2>" + name + "</h2>";
+		$('.gallery').addClass('hidden');
+		$('.shop').removeClass('hidden');
+	}
+
+	back(){
+		$('.shop').addClass('hidden');
+		$('.gallery').removeClass('hidden');
+	}
+
+	addToCart(){
+		var cn = document.getElementById('comicName').innerHTML;
+		console.log(cn);
+		this.cart.push(cn);
+		console.log(this.cart);
 	}
 	
 }

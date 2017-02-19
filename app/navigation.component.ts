@@ -9,12 +9,11 @@ import { Component }	from '@angular/core';
 			<div class="col-lg-1 col-md-2 col-xs-12 link nav"><a routerLink="/signIn">sign in</a></div>
 			<div class="col-lg-1 col-md-2 col-xs-12 link nav"><a routerLink="/cart">cart</a></div>
 			<div class="col-lg-2 hidden-md hidden-sm hidden-xs"><input type="text" name="search"></div>
-			<div class="col-lg-1 hidden-md hidden-sm hidden-xs button">search</div>
+			<div class="col-lg-1 hidden-md hidden-sm hidden-xs button" (click)="search()">search</div>
 		</div>
 	`,
 	styles: [`
 		.link:hover {
-			color: red;
 			background-color: black;
 		}
 
@@ -25,10 +24,6 @@ import { Component }	from '@angular/core';
 		a {
 			color: #fff;
 			text-decoration: none;
-		}
-
-		a:hover {
-			color: #ddd;
 		}
 
 		input {
@@ -69,5 +64,7 @@ import { Component }	from '@angular/core';
 	`]
 })
 export class NavigationComponent {
-
+	search(){
+		alert("called search");
+	}
 }
