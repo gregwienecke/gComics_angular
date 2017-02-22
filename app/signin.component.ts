@@ -7,22 +7,22 @@ import { Component } from '@angular/core';
 			<h1>Sign In</h1>
 		</div>
 		<div class="signInDiv" [hidden]="submitted">
-			
-			<form name="signInForm" (ngSubmit)="onSubmit()">
+
+			<form name="signInForm" (ngSubmit)="onSignInSubmit()">
 				<h2>Sign In</h2>
 				<label>Username</label><br>
-				<input type="text" id="name" name="name"><br>
+				<input [(ngModel)]="user.name" type="text" id="name" name="name" required><br>
 				<label>Password</label><br>
-				<input type="password" id="pw" name="pw"><br><br>
-				<input type="submit" value="sign in">
+				<input [(ngModel)]="user.password" type="password" id="pw" name="password" required><br><br>
+				<input type="submit" value="sign in"><span class="hidden" id="error">Incorrect username or password</span>
 			</form>
 
-			<form name="registerForm" (ngSubmit)="onSubmit()">
+			<form name="registerForm" (ngSubmit)="onRegisterSubmit()">
 				<h2>Register</h2>
 				<label>Username</label><br>
-				<input type="text"><br>
+				<input [(ngModel)]="newUser.name" type="text" name="name" required><br>
 				<label>Password</label><br>
-				<input type="password"><br><br>
+				<input [(ngModel)]="newUser.password" type="password" name="password" required><br><br>
 				<input type="submit" id="submit" value="register">
 			</form>
 
@@ -71,14 +71,53 @@ import { Component } from '@angular/core';
 			background-color: #222;
 		}
 
+		#error {
+			color: red;
+			margin-left: 15px;
+		}
 	`]
 })
 export class SignInComponent {
 
 	submitted = false;
 
-	onSubmit(){
+	user = {
+		username: "",
+		password: ""
+	}
+
+	newUser = {
+		username: "",
+		password: ""
+	}
+
+	users = [
+		{
+			username: "Greg",
+			password: "testpw"
+		}
+	]
+
+	onRegisterSubmit(){
 		this.submitted = true;
+
+		var newUser = {
+			name: this.newUser.name,
+			password: this.newUser.password
+		}
+
+		this.users.push(newUser)
+		console.log(this.users)
+	}
+
+	onSignInSubmit(){
+		for(var i=0; i<this.users.length; i+=1){
+			if (this.user.name == this.users[i].username && this.user.password == this.users[i].password){
+				this.submitted = true;
+			} else {
+				$('#error').removeClass('hidden');
+			}
+		}
 	}
 }
 

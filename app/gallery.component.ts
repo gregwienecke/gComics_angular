@@ -3,6 +3,7 @@ import { Component } 		from '@angular/core';
 import { Inventory }		from './mocks/inventory';
 //import { INVENTORY }		from './mocks/inventory-mocks';
 import { InventoryService } from './inventory.service';
+import { CartItem }			from './mocks/cart-item';
 
 @Component({
 	selector: 'gallery',
@@ -23,6 +24,15 @@ import { InventoryService } from './inventory.service';
 			<p>Price: $4</p>
 			<button (click)="addToCart()">Add To Cart</button><br><br>
 			<button (click)="back()">Back</button>
+			<button (click)="viewCart()">View Cart</button>
+		</div>
+
+		<div class="cart hidden">
+			<h2>SHOPPING CART</h2>
+			<div id="items"></div>
+			<div id="total"></div>
+			<button>Checkout</button><br><br>
+			<button (click)="home()">Back</button>
 		</div>		
 	`,
 	styles: [`
@@ -65,6 +75,12 @@ import { InventoryService } from './inventory.service';
 			margin-bottom: 100px;
 		}
 
+		.cart {
+			width: 90%;
+			margin: auto;
+			margin-bottom: 100px;
+		}
+
 		button {
 			background-color: black;
 			color: salmon;
@@ -74,12 +90,18 @@ import { InventoryService } from './inventory.service';
 
 		button:hover {
 			background-color: #222;
-		}		
+		}	
+
+		.items {
+			background-color: #ddd;
+		}	
 
 	`]
 })
 export class GalleryComponent {
 	inventory: Inventory[];
+	cart: CartItem[];
+	newItem: CartItem;
 
 	constructor(private inventoryService: InventoryService){}
 
@@ -90,23 +112,61 @@ export class GalleryComponent {
 		this.cart = [];
 	}
 
-	shop(name, image){
+	shop(name: string, image: string){
 		document.getElementById('comicImg').innerHTML = "<img style='height: 180px' src="+ image + ">"
-		document.getElementById('comicName').innerHTML = "<h2>" + name + "</h2>";
-		$('.gallery').addClass('hidden');
-		$('.shop').removeClass('hidden');
+		document.getElementById('comicName').innerHTML = "<h3>" + name + "</h3>";
+		$('.gallery').toggleClass('hidden');
+		$('.shop').toggleClass('hidden');
 	}
 
 	back(){
-		$('.shop').addClass('hidden');
+		$('.shop').toggleClass('hidden');
+		$('.gallery').toggleClass('hidden');
+	}
+
+	home(){
 		$('.gallery').removeClass('hidden');
+		$('.shop').addClass('hidden');
+		$('.cart').addClass('hidden');
 	}
 
 	addToCart(){
 		var cn = document.getElementById('comicName').innerHTML;
-		console.log(cn);
-		this.cart.push(cn);
-		console.log(this.cart);
+		
+		var match = false;
+		for (var i=0; i<this.cart.length; i+=1){
+			if(cn == this.cart[i].name){
+				this.cart[i].quantity += 1;
+				match = true;
+				console.log(this.cart);
+			}
+				
+		}
+
+		if (!match) {
+			this.newItem = {
+				name: cn,
+				price: 4,
+				quantity: 1
+			}
+			this.cart.push(this.newItem);
+			console.log(this.cart);
+		}
+	}
+
+	viewCart(){
+		$('.shop').toggleClass('hidden');
+		$('.cart').toggleClass('hidden');
+		var total = 0;
+		document.getElementById('items').innerHTML = "";
+		for (var i=0; i<this.cart.length; i+=1){
+			total += this.cart[i].price * this.cart[i].quantity;
+			document.getElementById('items').innerHTML += this.cart[i].name + 
+														  "Quantity: " + this.cart[i].quantity +
+														  " Price: $" + this.cart[i].price * this.cart[i].quantity;
+
+		}
+		document.getElementById('total').innerHTML = "<br><h4>Total: $" + total + "</h4>";
 	}
 	
 }
